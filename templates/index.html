@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web App</title>
+</head>
+<body>
+    <h1>House Price Prediction</h1>
+
+    <form method="post" action="/predict">
+        <label>No of Bedrooms</label>
+        <input type="number" value="4" name="bedrooms"><br><br>
+
+        <label>No of Bathrooms</label>
+        <input type="number" value="3" name="bathrooms"><br><br>
+
+        <label>Location</label>
+        <select name="location">
+            {% for key,value in Location.items() %}
+            <option value="{{value}}">{{key}}</option>
+        
+            {% endfor %}
+        </select><br><br>
+
+        <label>Area (in sqft)</label>
+        <input type="number" value="1500" name="area"><br><br>
+
+        <label>Property Status</label>
+        <select name="status">
+            {% for key,value in Status.items() %}
+            <option value="{{value}}">{{key}}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Direction of Facing</label>
+        <select name="facing">
+            {% for key,value in Facing.items() %}
+            <option value="{{value}}">{{key}}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <label>Type of Property</label>
+        <select name="type">
+            {% for key,value in Type.items() %}
+            <option value="{{value}}">{{key}}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <input type="submit" value="Predict">
+        
+    </form>
+
+    <h2> House Price Prediction Result </h2>
+    <p> Predicted House Price : ₹ {{ prediction }} Lakhs</p>
+</body>
+</html>
