@@ -48,4 +48,4 @@ def result():
     return render_template('index.html',prediction=result,Status=Status,Location=Location,Facing=Facing,Type=Type)
 
 if __name__=="__main__":
-    application.run(use_reloader=True,debug=True)
+    application.run()
